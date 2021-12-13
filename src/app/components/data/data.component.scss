@@ -1,0 +1,61 @@
+.input-data {
+    display: flex;
+    flex-direction: column;
+    &_item {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        padding: 5px;
+        & .label {
+            flex-basis: 25%;
+            font-weight: bold;
+        }
+        & .input-field {
+            width: 100%;
+            & input {
+                width: calc(100% - 10px);
+                border: 1px solid rgba(0, 0, 0, .3);
+                border-radius: 2px;
+                padding: 5px;
+                &.ng-invalid {
+                    border: 1px solid red;
+                }
+            }
+        }
+    }
+    .input-btn {
+        width: 100%;
+        padding: 5px 0px;
+        background-color: rgba(28, 161, 193, 1);
+        color: #fff;
+        border: none;
+        border-radius: 2px;
+        cursor: pointer;
+        &:active {
+            background-color: rgba(18, 100, 120, 1);
+        }
+        &:disabled {
+            background-color: gray;
+        }
+    }
+}
+
+.offers {
+    margin-top: 20px;
+    &-label {
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+    .title {
+        border: 1px solid rgba(0, 0, 0, .1);
+        background-color: rgba(0, 0, 0, .05);
+        padding: 5px;
+        font-weight: bold;
+    }
+    &-item {
+        padding: 5px;
+        color: rgba(0, 0, 0, .7);
+        border: 1px solid rgba(0, 0, 0, .1);
+    }
+}

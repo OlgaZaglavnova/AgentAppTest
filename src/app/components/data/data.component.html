@@ -1,0 +1,59 @@
+<div class="input-data">
+    <form [formGroup]="dataForm" (submit)="onSubmit()">
+        <div class="input-data_item">
+        <div class="label">
+            Количество километров
+        </div>
+        <div class="input-field">
+            <input type="number" formControlName="distance">
+        </div>
+        </div>
+        <div class="input-data_item">
+        <div class="label">
+            Возраст
+        </div>
+        <div class="input-field">
+            <input type="number" formControlName="age">
+        </div>
+        </div>
+        <div class="input-data_item">
+        <div class="label">
+            Вес багажа
+        </div>
+        <div class="input-field">
+            <input type="number" formControlName="baggageWeight"> 
+        </div>
+        </div>
+        <div class="input-data_item">
+        <input
+            type="submit"
+            class="input-btn"
+            value="Рассчитать"
+            [disabled]="dataForm.invalid"
+        >
+        </div>
+    </form>
+</div>
+<div class="offers" *ngIf = "clicked && !dataForm.invalid">
+    <div class="offers-label">Предложения:</div>
+    <div class="title">Аэрофлот</div>
+    <div class="offers-item" *ngIf="aeroflotService.getOffer(tariffName.ECONOM)">
+        Эконом: {{aeroflotService.getOffer(tariffName.ECONOM) | number: '1.2-2'}} &#8381;
+    </div>
+    <div class="offers-item" *ngIf="aeroflotService.getOffer(tariffName.ADVANCED)">
+        Продвинутый: {{aeroflotService.getOffer(tariffName.ADVANCED) | number: '1.2-2'}} &#8381;
+    </div>
+    <div class="offers-item" *ngIf="aeroflotService.getOffer(tariffName.LUX)">
+        Люкс: {{aeroflotService.getOffer(tariffName.LUX) | number: '1.2-2'}} &#8381;
+    </div>
+    <div class="title">РЖД</div>
+    <div class="offers-item" *ngIf="rzhdService.getOffer(tariffName.ECONOM)">
+        Эконом: {{rzhdService.getOffer(tariffName.ECONOM) | number: '1.2-2'}} &#8381;
+    </div>
+    <div class="offers-item" *ngIf="rzhdService.getOffer(tariffName.ADVANCED)">
+        Продвинутый: {{rzhdService.getOffer(tariffName.ADVANCED) | number: '1.2-2'}} &#8381;
+    </div>
+    <div class="offers-item" *ngIf="rzhdService.getOffer(tariffName.LUX)">
+        Люкс: {{rzhdService.getOffer(tariffName.LUX) | number: '1.2-2'}} &#8381;
+    </div>
+</div>
